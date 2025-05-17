@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.jnasser.pokemon.data"
+    namespace = "com.jnasser.core.database"
     compileSdk = 35
 
     defaultConfig {
@@ -33,9 +33,5 @@ android {
 }
 
 dependencies {
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.google.android.gms.play.services.location)
-    implementation(libs.androidx.work)
-    implementation(libs.koin.android.workmanager)
-    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.bundles.koin)
 }
