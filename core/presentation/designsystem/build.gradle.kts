@@ -40,4 +40,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.constraintlayout.compose)
     api(libs.androidx.material3)
+
+    // Modules
+    implementation(projects.core.domain)
 }

@@ -71,4 +71,16 @@ dependencies {
 
     // Koin
     implementation(libs.bundles.koin)
+
+    // Modules
+    implementation(projects.core.presentation.designsystem)
+    implementation(projects.core.presentation.ui)
+    implementation(projects.core.domain)
+    implementation(projects.core.data)
+    implementation(projects.core.database)
+
+    implementation(projects.pokemon.domain)
+    implementation(projects.pokemon.data)
+    implementation(projects.pokemon.presentation)
+    implementation(projects.pokemon.network)
 }

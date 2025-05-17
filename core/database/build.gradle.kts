@@ -34,4 +34,7 @@ android {
 
 dependencies {
     implementation(libs.bundles.koin)
+
+    // Modules
+    implementation(projects.core.domain)
 }
