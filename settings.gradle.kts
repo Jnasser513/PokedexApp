@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -20,6 +21,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "PokedexApp"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":pokemon:data")
 include(":pokemon:domain")
@@ -29,3 +31,4 @@ include(":core:data")
 include(":core:domain")
 include(":core:presentation:designsystem")
 include(":core:presentation:ui")
+include(":core:database")
