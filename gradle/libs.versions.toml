@@ -198,6 +198,7 @@ pokedex-android-library-compose = { id = "pokedex.android.library.compose", vers
 pokedex-android-feature-ui = { id = "pokedex.android.feature.ui", version = "unspecified" }
 pokedex-android-room = { id = "pokedex.android.room", version = "unspecified" }
 pokedex-jvm-library = { id = "pokedex.jvm.library", version = "unspecified" }
+pokedex-jvm-ktor = { id = "pokedex.jvm.ktor", version = "unspecified" }
 
 [bundles]
 compose = [

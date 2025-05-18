@@ -41,5 +41,9 @@ gradlePlugin {
             id = "pokedex.jvm.library"
             implementationClass = "JVMLibraryConventionPlugin"
         }
+        register("jvmKtor") {
+            id = "pokedex.jvm.ktor"
+            implementationClass = "JVMKtorConventionPlugin"
+        }
     }
 }
