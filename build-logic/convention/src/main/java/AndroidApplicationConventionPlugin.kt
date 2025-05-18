@@ -1,4 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
+import com.jnasser.convention.ExtensionType
+import com.jnasser.convention.configureBuildTypes
 import com.jnasser.convention.configureKotlinAndroid
 import com.jnasser.convention.libs
 import org.gradle.api.Plugin
@@ -30,6 +32,11 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
                 // Apply shared Kotlin Android configuration
                 configureKotlinAndroid(this)
+
+                configureBuildTypes(
+                    commonExtension = this,
+                    extensionType = ExtensionType.APPLICATION
+                )
             }
         }
     }
