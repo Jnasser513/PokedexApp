@@ -37,5 +37,9 @@ gradlePlugin {
             id = "pokedex.android.room"
             implementationClass = "AndroidRoomConventionPlugin"
         }
+        register("jvmLibrary") {
+            id = "pokedex.jvm.library"
+            implementationClass = "JVMLibraryConventionPlugin"
+        }
     }
 }
