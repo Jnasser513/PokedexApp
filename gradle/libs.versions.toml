@@ -192,6 +192,8 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 # Convention Plugins
 pokedex-android-application = { id = "pokedex.android.application", version = "unspecified" }
+pokedex-android-application-compose = { id = "pokedex.android.application.compose", version = "unspecified" }
+
 
 [bundles]
 compose = [

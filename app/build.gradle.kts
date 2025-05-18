@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.pokedex.android.application)
+    alias(libs.plugins.pokedex.android.application.compose)
 }
 
 android {
@@ -7,19 +7,6 @@ android {
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    buildFeatures {
-        compose = true
     }
 }
 
