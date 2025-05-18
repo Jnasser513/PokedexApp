@@ -33,5 +33,9 @@ gradlePlugin {
             id = "pokedex.android.feature.ui"
             implementationClass = "AndroidFeatureUIConventionPlugin"
         }
+        register("androidRoom") {
+            id = "pokedex.android.room"
+            implementationClass = "AndroidRoomConventionPlugin"
+        }
     }
 }

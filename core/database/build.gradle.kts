@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.pokedex.android.library)
+    alias(libs.plugins.pokedex.android.room)
 }
 
 android {
