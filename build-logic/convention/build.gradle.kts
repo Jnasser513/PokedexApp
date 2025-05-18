@@ -21,5 +21,9 @@ gradlePlugin {
             id = "pokedex.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
+        register("androidLibrary") {
+            id = "pokedex.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
     }
 }
