@@ -195,6 +195,7 @@ pokedex-android-application = { id = "pokedex.android.application", version = "u
 pokedex-android-application-compose = { id = "pokedex.android.application.compose", version = "unspecified" }
 pokedex-android-library = { id = "pokedex.android.library", version = "unspecified" }
 pokedex-android-library-compose = { id = "pokedex.android.library.compose", version = "unspecified" }
+pokedex-android-feature-ui = { id = "pokedex.android.feature.ui", version = "unspecified" }
 
 [bundles]
 compose = [

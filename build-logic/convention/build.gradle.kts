@@ -29,5 +29,9 @@ gradlePlugin {
             id = "pokedex.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
+        register("androidFeatureUi") {
+            id = "pokedex.android.feature.ui"
+            implementationClass = "AndroidFeatureUIConventionPlugin"
+        }
     }
 }
