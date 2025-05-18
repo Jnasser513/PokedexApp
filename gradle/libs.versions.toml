@@ -75,7 +75,7 @@ ktorServerCallLogging = "2.3.7"
 playServicesTime = "16.0.1"
 
 # Project Versions
-projectApplicationId = "com.jnasser.weatherapp"
+projectApplicationId = "com.jnasser.pokedexapp"
 projectVersionName = "1.0"
 projectMinSdkVersion = "24"
 projectTargetSdkVersion = "35"
@@ -191,17 +191,7 @@ room = { id = "androidx.room", version.ref = "room" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 # Convention Plugins
-weatherapp-android-application = { id = "weatherapp.android.application", version = "unspecified" }
-weatherapp-android-application-compose = { id = "weatherapp.android.application.compose", version = "unspecified" }
-weatherapp-android-library = { id = "weatherapp.android.library", version = "unspecified" }
-weatherapp-android-library-compose = { id = "weatherapp.android.library.compose", version = "unspecified" }
-weatherapp-android-feature-ui = { id = "weatherapp.android.feature.ui", version = "unspecified" }
-weatherapp-android-room = { id = "weatherapp.android.room", version = "unspecified" }
-weatherapp-jvm-library = { id = "weatherapp.jvm.library", version = "unspecified" }
-weatherapp-jvm-ktor = { id = "weatherapp.jvm.ktor", version = "unspecified" }
-weatherapp-jvm-junit5 = { id = "weatherapp.jvm.junit5", version = "unspecified" }
-weatherapp-android-junit5 = { id = "weatherapp.android.junit5", version = "unspecified" }
-weatherapp-android-dynamic-feature = { id = "weatherapp.android.dynamic.feature", version = "unspecified" }
+pokedex-android-application = { id = "pokedex.android.application", version = "unspecified" }
 
 [bundles]
 compose = [
