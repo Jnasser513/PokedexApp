@@ -51,7 +51,7 @@ fun PokemonListScreenRoot(
     PokemonListScreen(
         state = viewModel.state,
         onAction = { action ->
-
+            viewModel.onAction(action)
         }
     )
 }
@@ -98,88 +98,12 @@ fun PokemonListScreen(
                     config = PokedexSearchBarConfig(
                         trailingIcon = PokedexIcons.Search,
                         onSearch = { query ->
-
+                            onAction(PokemonListAction.OnSearch(query))
                         }
                     )
                 )
                 PokemonList(
-                    pokemonList = listOf(
-                        PokemonListDataUi(
-                            name = "Aron",
-                            number = "304",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Pikachu",
-                            number = "30",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charizard",
-                            number = "302",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmander",
-                            number = "305",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmeleon",
-                            number = "307",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmeleon",
-                            number = "307",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmeleon",
-                            number = "307",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmeleon",
-                            number = "307",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmeleon",
-                            number = "307",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmeleon",
-                            number = "307",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmeleon",
-                            number = "307",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmeleon",
-                            number = "307",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmeleon",
-                            number = "307",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmeleon",
-                            number = "307",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        ),
-                        PokemonListDataUi(
-                            name = "Charmeleon",
-                            number = "307",
-                            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                        )
-                    )
+                    pokemonList = state.filteredPokemonList
                 )
             }
         }
