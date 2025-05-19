@@ -11,7 +11,7 @@ class AndroidFeatureUIConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         target.run {
             pluginManager.run {
-                // Apply base compose library convention
+                // Apply compose library convention
                 apply("pokedex.android.library.compose")
             }
 
