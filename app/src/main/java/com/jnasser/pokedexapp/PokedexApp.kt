@@ -3,6 +3,7 @@ package com.jnasser.pokedexapp
 import android.app.Application
 import android.content.Context
 import com.jnasser.core.data.di.coreDataModule
+import com.jnasser.pokemon.presentation.di.pokemonPresentationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -19,7 +20,8 @@ class PokedexApp: Application() {
             androidLogger()
             androidContext(this@PokedexApp)
             modules(
-                coreDataModule
+                coreDataModule,
+                pokemonPresentationModule
             )
         }
     }

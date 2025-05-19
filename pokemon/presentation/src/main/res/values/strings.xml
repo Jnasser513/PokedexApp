@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pokeball">Pokeball</string>
+    <string name="pokedex">Pokédex</string>
+    <string name="hello">¡Hola,&#160;</string>
+    <string name="welcome">bienvenido!</string>
+    <string name="pokemon_number">#%s</string>
+    <string name="pokemon">pokemon name</string>
 </resources>

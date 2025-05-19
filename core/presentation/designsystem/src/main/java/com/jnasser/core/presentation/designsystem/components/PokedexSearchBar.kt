@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jnasser.core.presentation.designsystem.R
@@ -62,8 +63,9 @@ fun PokedexSearchBar(
             config.onSearch(it)
         },
         singleLine = true,
-        textStyle = MaterialTheme.typography.bodySmall.copy(
-            color = PokedexColors.Gray400
+        textStyle = MaterialTheme.typography.bodyMedium.copy(
+            color = PokedexColors.Gray400,
+            fontWeight = FontWeight.Normal
         ),
         modifier = modifier
             .fillMaxWidth()
@@ -88,7 +90,10 @@ fun PokedexSearchBar(
                     if (text.isEmpty()) {
                         Text(
                             text = stringResource(config.placeholder),
-                            style = MaterialTheme.typography.bodySmall,
+                            style = MaterialTheme.typography.bodyMedium.copy(
+                                color = PokedexColors.Gray400,
+                                fontWeight = FontWeight.Normal
+                            ),
                             color = PokedexColors.Gray400
                         )
                     }
