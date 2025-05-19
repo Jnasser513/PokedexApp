@@ -9,15 +9,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CardElevation
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -31,12 +27,12 @@ import com.jnasser.core.presentation.designsystem.extensions.shadow
 import com.jnasser.core.presentation.designsystem.theme.PokedexAppTheme
 import com.jnasser.core.presentation.designsystem.theme.PokedexColors
 import com.jnasser.pokemon.presentation.R
-import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonListDataUi
+import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonDataUi
 
 @Composable
 fun PokemonItem(
     modifier: Modifier = Modifier,
-    pokemon: PokemonListDataUi,
+    pokemon: PokemonDataUi,
     onClick: (String) -> Unit
 ) {
     Card(
@@ -129,7 +125,7 @@ fun PokemonItem(
 private fun PokemonItemPreview() {
     PokedexAppTheme {
         PokemonItem(
-            pokemon = PokemonListDataUi(
+            pokemon = PokemonDataUi(
                 name = "Aron",
                 number = "304",
                 imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"

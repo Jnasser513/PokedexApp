@@ -4,7 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonListDataUi
+import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonDataUi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 
@@ -18,77 +18,77 @@ class PokemonListViewModel(
     init {
         state = state.copy(
             pokemonList = listOf(
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Aron",
                     number = "304",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Pikachu",
                     number = "30",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charizard",
                     number = "302",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmander",
                     number = "305",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmeleon",
                     number = "307",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmeleon",
                     number = "307",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmeleon",
                     number = "307",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmeleon",
                     number = "307",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmeleon",
                     number = "307",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmeleon",
                     number = "307",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmeleon",
                     number = "307",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmeleon",
                     number = "307",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmeleon",
                     number = "307",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmeleon",
                     number = "307",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 ),
-                PokemonListDataUi(
+                PokemonDataUi(
                     name = "Charmeleon",
                     number = "307",
                     imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"

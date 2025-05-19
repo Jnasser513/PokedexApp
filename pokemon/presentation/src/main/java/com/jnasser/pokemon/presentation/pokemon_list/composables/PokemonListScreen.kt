@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,8 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -30,19 +27,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.jnasser.core.presentation.designsystem.components.PokedexLoading
 import com.jnasser.core.presentation.designsystem.components.PokedexSearchBar
 import com.jnasser.core.presentation.designsystem.components.PokedexSearchBarConfig
-import com.jnasser.core.presentation.designsystem.theme.Montserrat
 import com.jnasser.core.presentation.designsystem.theme.PokedexAppTheme
 import com.jnasser.core.presentation.designsystem.theme.PokedexIcons
 import com.jnasser.pokemon.presentation.R
 import com.jnasser.pokemon.presentation.pokemon_list.PokemonListAction
 import com.jnasser.pokemon.presentation.pokemon_list.PokemonListViewModel
 import com.jnasser.pokemon.presentation.pokemon_list.PokemonListViewState
-import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonListDataUi
 import org.koin.androidx.compose.koinViewModel
-import timber.log.Timber
 
 @Composable
 fun PokemonListScreenRoot(
