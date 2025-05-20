@@ -15,4 +15,6 @@ val databaseModule = module {
             POKEMON_ROOM_DB_NAME
         ).build()
     }
+
+    single { get<PokemonDatabase>().pokemonDao }
 }

@@ -20,14 +20,14 @@ interface PokemonDao {
      */
     @Transaction
     @Query("SELECT * FROM pokemon_entity")
-    suspend fun getAllWithTypesAndStats(): Flow<List<PokemonWithTypesAndStats>>
+    fun getAllWithTypesAndStats(): Flow<List<PokemonWithTypesAndStats>>
 
     @Upsert
-    suspend fun upsertPokemon(pokemon: PokemonEntity)
+    suspend fun upsertPokemon(pokemon: PokemonEntity): Long
 
     @Upsert
-    suspend fun upsertPokemonTypes(types: List<PokemonTypeEntity>)
+    suspend fun upsertPokemonTypes(types: List<PokemonTypeEntity>): List<Long>
 
     @Upsert
-    suspend fun upsertPokemonStats(stats: List<PokemonStatEntity>)
+    suspend fun upsertPokemonStats(stats: List<PokemonStatEntity>): List<Long>
 }
