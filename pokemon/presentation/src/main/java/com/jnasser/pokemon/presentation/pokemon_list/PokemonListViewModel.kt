@@ -5,101 +5,32 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jnasser.core.domain.pokemon.usecases.GetLocalPokemonListUseCase
 import com.jnasser.core.domain.pokemon.usecases.GetPokemonByGenerationUseCase
 import com.jnasser.core.domain.util.result_handler.Result
 import com.jnasser.core.presentation.ui.asUiText
-import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonDataUi
+import com.jnasser.pokemon.presentation.pokemon_list.mappers.toPokemonDataUi
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 class PokemonListViewModel(
-    private val getPokemonByGenerationUseCase: GetPokemonByGenerationUseCase
+    private val getPokemonByGenerationUseCase: GetPokemonByGenerationUseCase,
+    private val getLocalPokemonListUseCase: GetLocalPokemonListUseCase
 ): ViewModel() {
 
     var state by mutableStateOf(PokemonListViewState())
         private set
 
     init {
-        state = state.copy(
-            pokemonList = listOf(
-                PokemonDataUi(
-                    name = "Aron",
-                    number = "304",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Pikachu",
-                    number = "30",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charizard",
-                    number = "302",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmander",
-                    number = "305",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmeleon",
-                    number = "307",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmeleon",
-                    number = "307",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmeleon",
-                    number = "307",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmeleon",
-                    number = "307",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmeleon",
-                    number = "307",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmeleon",
-                    number = "307",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmeleon",
-                    number = "307",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmeleon",
-                    number = "307",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmeleon",
-                    number = "307",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmeleon",
-                    number = "307",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                ),
-                PokemonDataUi(
-                    name = "Charmeleon",
-                    number = "307",
-                    imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-                )
-            )
-        )
+        getPokemonByGeneration()
+        viewModelScope.launch {
+            getLocalPokemonListUseCase.invoke().onEach { pokemons ->
+                val pokemonsDataUi = pokemons.map { it.toPokemonDataUi() }
+                state = state.copy(isLoading = false, pokemonList = pokemonsDataUi)
+            }
+        }
     }
 
     private val eventChannel = Channel<PokemonListEvent>()
@@ -114,15 +45,8 @@ class PokemonListViewModel(
 
     private fun getPokemonByGeneration() {
         viewModelScope.launch {
-            when(val result = getPokemonByGenerationUseCase.invoke(1)) {
-                is Result.Error -> eventChannel.send(PokemonListEvent.Error(result.error.asUiText()))
-                is Result.Success -> {
-                    /*state = state.copy(
-                        isLoading = false,
-                        pokemonList = result.data.pokemonSpecies
-                    )*/
-                }
-            }
+            val result = getPokemonByGenerationUseCase.invoke(1)
+            if(result is Result.Error) eventChannel.send(PokemonListEvent.Error(result.error.asUiText()))
         }
     }
 

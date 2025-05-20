@@ -9,12 +9,12 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonDataUi
+import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonListDataUi
 
 @Composable
 fun PokemonList(
     modifier: Modifier = Modifier,
-    pokemonList: List<PokemonDataUi>
+    pokemonList: List<PokemonListDataUi>
 ) {
     LazyVerticalGrid(
         modifier = modifier.fillMaxSize(),

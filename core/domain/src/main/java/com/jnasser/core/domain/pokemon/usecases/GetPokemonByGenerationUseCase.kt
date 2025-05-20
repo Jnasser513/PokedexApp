@@ -5,11 +5,9 @@ import com.jnasser.core.domain.pokemon.repositories.PokemonRepository
 import kotlinx.coroutines.withContext
 
 class GetPokemonByGenerationUseCase(
-    private val pokemonRepository: PokemonRepository,
-    private val dispatcherProvider: DispatcherProvider
+    private val pokemonRepository: PokemonRepository
 ) {
 
-    suspend operator fun invoke(generation: Int) = withContext(dispatcherProvider.io) {
+    suspend operator fun invoke(generation: Int) =
         pokemonRepository.getPokemonListByGeneration(generation)
-    }
 }

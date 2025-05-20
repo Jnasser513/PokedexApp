@@ -27,12 +27,12 @@ import com.jnasser.core.presentation.designsystem.extensions.shadow
 import com.jnasser.core.presentation.designsystem.theme.PokedexAppTheme
 import com.jnasser.core.presentation.designsystem.theme.PokedexColors
 import com.jnasser.pokemon.presentation.R
-import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonDataUi
+import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonListDataUi
 
 @Composable
 fun PokemonItem(
     modifier: Modifier = Modifier,
-    pokemon: PokemonDataUi,
+    pokemon: PokemonListDataUi,
     onClick: (String) -> Unit
 ) {
     Card(
@@ -125,7 +125,7 @@ fun PokemonItem(
 private fun PokemonItemPreview() {
     PokedexAppTheme {
         PokemonItem(
-            pokemon = PokemonDataUi(
+            pokemon = PokemonListDataUi(
                 name = "Aron",
                 number = "304",
                 imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
