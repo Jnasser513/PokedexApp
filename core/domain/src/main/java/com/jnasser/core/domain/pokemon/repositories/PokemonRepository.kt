@@ -1,14 +1,25 @@
 package com.jnasser.core.domain.pokemon.repositories
 
+import com.jnasser.core.domain.pokemon.model.Pokemon
 import com.jnasser.core.domain.pokemon.model.PokemonGeneration
+import com.jnasser.core.domain.pokemon.model.PokemonStat
+import com.jnasser.core.domain.pokemon.model.PokemonType
 import com.jnasser.core.domain.util.error_handler.DataError
 import com.jnasser.core.domain.util.result_handler.Result
+import kotlinx.coroutines.flow.Flow
 
 /**
  * Repository interface for accessing Pokémon data.
  * Acts as an abstraction between the domain layer and data sources.
  */
 interface PokemonRepository {
+
+    /**
+     * Retrieves the list of Pokémon stored locally.
+     *
+     * @return A [Flow] emitting the list of Pokémon.
+     */
+    fun getPokemons(): Flow<List<Pokemon>>
 
     /**
      * Retrieves the list of Pokémon for a specific generation.
