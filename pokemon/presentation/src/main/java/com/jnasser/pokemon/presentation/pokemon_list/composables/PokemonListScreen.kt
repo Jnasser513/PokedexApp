@@ -1,6 +1,7 @@
 package com.jnasser.pokemon.presentation.pokemon_list.composables
 
 import PokedexScaffold
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -31,8 +33,10 @@ import com.jnasser.core.presentation.designsystem.components.PokedexSearchBar
 import com.jnasser.core.presentation.designsystem.components.PokedexSearchBarConfig
 import com.jnasser.core.presentation.designsystem.theme.PokedexAppTheme
 import com.jnasser.core.presentation.designsystem.theme.PokedexIcons
+import com.jnasser.core.presentation.ui.ObserveAsEvents
 import com.jnasser.pokemon.presentation.R
 import com.jnasser.pokemon.presentation.pokemon_list.PokemonListAction
+import com.jnasser.pokemon.presentation.pokemon_list.PokemonListEvent
 import com.jnasser.pokemon.presentation.pokemon_list.PokemonListViewModel
 import com.jnasser.pokemon.presentation.pokemon_list.PokemonListViewState
 import org.koin.androidx.compose.koinViewModel
@@ -41,6 +45,17 @@ import org.koin.androidx.compose.koinViewModel
 fun PokemonListScreenRoot(
     viewModel: PokemonListViewModel = koinViewModel()
 ) {
+    val context = LocalContext.current
+    ObserveAsEvents(viewModel.events) { event ->
+        when(event) {
+            is PokemonListEvent.Error -> Toast.makeText(
+                context,
+                event.error.asString(context),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
     PokemonListScreen(
         state = viewModel.state,
         onAction = { action ->
