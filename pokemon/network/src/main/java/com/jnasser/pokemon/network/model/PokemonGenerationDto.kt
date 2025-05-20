@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PokemonGenerationDto(
     @SerialName(value = "pokemon_species")
-    val pokemonSpecies: List<PokemonDto>
+    val pokemonSpecies: List<PokemonGenerationDetailDto>
 )

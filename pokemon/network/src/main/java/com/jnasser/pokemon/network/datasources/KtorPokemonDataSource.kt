@@ -2,11 +2,14 @@ package com.jnasser.pokemon.network.datasources
 
 import com.jnasser.core.data.networking.get
 import com.jnasser.core.domain.pokemon.datasources.RemotePokemonDataSource
+import com.jnasser.core.domain.pokemon.model.Pokemon
 import com.jnasser.core.domain.pokemon.model.PokemonGeneration
 import com.jnasser.core.domain.util.error_handler.DataError
 import com.jnasser.core.domain.util.result_handler.Result
 import com.jnasser.core.domain.util.result_handler.map
+import com.jnasser.pokemon.network.mappers.toPokemon
 import com.jnasser.pokemon.network.mappers.toPokemonGeneration
+import com.jnasser.pokemon.network.model.PokemonDto
 import com.jnasser.pokemon.network.model.PokemonGenerationDto
 import io.ktor.client.HttpClient
 
@@ -20,5 +23,11 @@ class KtorPokemonDataSource(
         return httpClient.get<PokemonGenerationDto>(
             route = "generation/$generation"
         ).map { it.toPokemonGeneration() }
+    }
+
+    override suspend fun getPokemonDetail(name: String): Result<Pokemon, DataError.Network> {
+        return httpClient.get<PokemonDto>(
+            route = "pokemon/$name"
+        ).map { it.toPokemon() }
     }
 }
