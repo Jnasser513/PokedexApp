@@ -11,6 +11,7 @@ import com.jnasser.core.domain.util.result_handler.Result
 import com.jnasser.core.presentation.ui.asUiText
 import com.jnasser.pokemon.presentation.pokemon_list.mappers.toPokemonDataUi
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
@@ -29,7 +30,7 @@ class PokemonListViewModel(
             getLocalPokemonListUseCase.invoke().onEach { pokemons ->
                 val pokemonsDataUi = pokemons.map { it.toPokemonDataUi() }
                 state = state.copy(isLoading = false, pokemonList = pokemonsDataUi)
-            }
+            }.launchIn(viewModelScope)
         }
     }
 

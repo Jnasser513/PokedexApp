@@ -11,6 +11,8 @@ import com.jnasser.core.domain.util.result_handler.Result
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.sync.Semaphore
+import kotlinx.coroutines.sync.withPermit
 import kotlinx.coroutines.withContext
 
 /**
@@ -45,24 +47,19 @@ class OfflineFirstPokemonRepository(
             is Result.Success -> {
                 val pokemons = result.data.pokemonGenerationDetail
 
+                // Use Semaphore to control concurrent requests and avoid ui to freeze
+                val semaphore = Semaphore(CONCURRENT_REQUESTS)
+
                 // Launch concurrent requests to fetch Pokémon details
-                val detailResults = pokemons.map { pokemon ->
+                pokemons.map { pokemon ->
                     async {
-                        remotePokemonDataSource.getPokemonDetail(pokemon.name)
+                        semaphore.withPermit {
+                            val pokemonResult = remotePokemonDataSource.getPokemonDetail(pokemon.name)
+
+                            if(pokemonResult is Result.Success) upsertPokemonDetail(pokemonResult.data)
+                        }
                     }
                 }.awaitAll()
-
-                // Persist only the successful results into the local database
-                detailResults.forEach { detailResult ->
-                    when (detailResult) {
-                        is Result.Success -> {
-                            upsertPokemonDetail(detailResult.data)
-                        }
-                        is Result.Error -> {
-                            println("Failed to fetch detail: ${detailResult.error}")
-                        }
-                    }
-                }
 
                 Result.Success(result.data)
             }
@@ -77,5 +74,9 @@ class OfflineFirstPokemonRepository(
         localPokemonDataSource.upsertPokemon(pokemonDetail)
         localPokemonDataSource.upsertPokemonStats(pokemonDetail.stats)
         localPokemonDataSource.upsertPokemonTypes(pokemonDetail.types)
+    }
+
+    companion object {
+        private const val CONCURRENT_REQUESTS = 5
     }
 }

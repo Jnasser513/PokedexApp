@@ -11,7 +11,7 @@ import org.koin.dsl.module
 
 private const val POKEMON_ROOM_DB_NAME = "pokemon.db"
 
-val databaseModule = module {
+val coreDatabaseModule = module {
     single {
         Room.databaseBuilder(
             androidApplication(),

@@ -1,5 +1,6 @@
 package com.jnasser.pokemon.presentation.di
 
+import com.jnasser.core.domain.pokemon.usecases.GetLocalPokemonListUseCase
 import com.jnasser.core.domain.pokemon.usecases.GetPokemonByGenerationUseCase
 import com.jnasser.pokemon.presentation.pokemon_list.PokemonListViewModel
 import org.koin.core.module.dsl.singleOf
@@ -10,4 +11,5 @@ val pokemonPresentationModule = module {
 
     // Use cases
     singleOf(::GetPokemonByGenerationUseCase)
+    singleOf(::GetLocalPokemonListUseCase)
 }
