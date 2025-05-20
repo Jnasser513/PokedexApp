@@ -90,7 +90,7 @@ fun PokemonItem(
                         bottom.linkTo(name.top)
                     },
                 model = pokemon.imageUrl,
-                contentDescription = stringResource(R.string.pokemon),
+                contentDescription = stringResource(R.string.pokemon_name),
                 error = {
                     // TODO("Add error image")
                 },

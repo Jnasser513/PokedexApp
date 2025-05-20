@@ -76,10 +76,11 @@ object PokedexTopAppBar {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PokedexTopAppBar(
+    modifier: Modifier = Modifier,
     config: PokedexTopAppBarConfig
 ) {
     TopAppBar(
-        modifier = Modifier.padding(horizontal = 15.dp),
+        modifier = modifier,
         title = {
             Text(
                 modifier = Modifier.fillMaxWidth(),

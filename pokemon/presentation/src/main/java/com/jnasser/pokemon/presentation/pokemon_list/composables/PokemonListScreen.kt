@@ -70,7 +70,6 @@ fun PokemonListScreen(
     onAction: (PokemonListAction) -> Unit
 ) {
     PokedexScaffold(
-        modifier = Modifier.background(MaterialTheme.colorScheme.surface),
         topAppBar = { PokemonListTopBar() }
     ) { padding ->
 

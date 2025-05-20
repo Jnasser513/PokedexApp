@@ -36,4 +36,26 @@ object PokedexColors {
     // Greens
     val GreenSoft = Color(0xFF65D498)
     val GreenPrimary = Color(0xFF009444)
+
+    // Pokemon Type colors
+    val TypeNormal = Color(0xFF760EFC)
+    val TypeFighting = Color(0xFFC22E28)
+    val TypeFlying = Color(0xFFA98FF3)
+    val TypePoison = Color(0xFF141414)
+    val TypeGround = Color(0xFFE2BF65)
+    val TypeRock = Color(0xFFB6A136)
+    val TypeBug = Color(0xFFA6B91A)
+    val TypeGhost = Color(0xFF735797)
+    val TypeSteel = Color(0xFFB7B7CE)
+    val TypeFire = Color(0xFFFF4210)
+    val TypeWater = Color(0xFF01243A)
+    val TypeGrass = Color(0xFF009444)
+    val TypeElectric = Color(0xFFFFA800)
+    val TypePsychic = Color(0xFFF95587)
+    val TypeIce = Color(0xFF96D9D6)
+    val TypeDragon = Color(0xFF6F35FC)
+    val TypeDark = Color(0xFF705746)
+    val TypeFairy = Color(0xFFD685AD)
+    val TypeStellar = Color(0xFF5EBDD0)
+    val TypeUnknown = Color(0xFFA0A0A0)
 }
