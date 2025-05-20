@@ -1,19 +1,30 @@
 package com.jnasser.pokemon.presentation.pokemon_detail.composables
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
 import com.jnasser.core.domain.pokemon.model.PokemonType
+import com.jnasser.core.presentation.designsystem.components.PokedexChip
+import com.jnasser.core.presentation.designsystem.components.PokedexChipConfig
 import com.jnasser.core.presentation.designsystem.components.PokedexLoading
+import com.jnasser.core.presentation.designsystem.enums.PokemonTypeEnum
+import com.jnasser.core.presentation.designsystem.extensions.toPastel
 import com.jnasser.core.presentation.designsystem.theme.PokedexAppTheme
 import com.jnasser.pokemon.presentation.R
 import com.jnasser.pokemon.presentation.pokemon_detail.model.ImageContainerDataUi
@@ -23,10 +34,32 @@ fun ImageContainer(
     modifier: Modifier = Modifier,
     imageContainerDataUi: ImageContainerDataUi
 ) {
+    val pokemonType = PokemonTypeEnum.fromName(
+        imageContainerDataUi.types.getOrNull(0)?.type?.lowercase().toString()
+    )
+
     Box(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .height(300.dp),
         contentAlignment = Alignment.Center
     ) {
+        Column(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Spacer(modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f))
+            Spacer(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .background(
+                        color = pokemonType.color.toPastel(0.3f),
+                        shape = RoundedCornerShape(15.dp)
+                    )
+            )
+        }
         ImageWithTypes(
             modifier = Modifier.padding(vertical = 15.dp),
             image = imageContainerDataUi.image,
@@ -42,14 +75,13 @@ fun ImageWithTypes(
     types: List<PokemonType>
 ) {
     Column(
-        modifier = modifier
-            .fillMaxWidth(),
+        modifier = modifier,
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         SubcomposeAsyncImage(
             modifier = Modifier
-                .fillMaxWidth(),
+                .height(230.dp),
             model = image,
             contentDescription = stringResource(R.string.pokemon),
             error = {
@@ -63,6 +95,13 @@ fun ImageWithTypes(
                 }
             }
         )
+        types.forEach { type ->
+            PokedexChip(
+                config = PokedexChipConfig(
+                    type = PokemonTypeEnum.fromName(type.type.lowercase())
+                ) {}
+            )
+        }
     }
 }
 
@@ -77,9 +116,7 @@ private fun ImageContainerPreview() {
                     PokemonType(
                         1, "Fuego"
                     )
-                ),
-                weight = "90,5",
-                height = "1,7"
+                )
             )
         )
     }

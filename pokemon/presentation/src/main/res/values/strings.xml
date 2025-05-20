@@ -7,4 +7,9 @@
     <string name="pokemon_number">#%s</string>
     <string name="pokemon_name">pokemon name</string>
     <string name="pokemon">pokemon</string>
+    <string name="weight">Peso</string>
+    <string name="height">Altura</string>
+    <string name="height_value">%s m</string>
+    <string name="weight_value">%s Kg</string>
+    <string name="stats">Estadísticas</string>
 </resources>

@@ -19,8 +19,9 @@ fun PokedexScaffold(
     content: @Composable (PaddingValues) -> Unit
 ) {
     Scaffold(
-        modifier = modifier.background(MaterialTheme.colorScheme.surface),
-        topBar = topAppBar
+        modifier = modifier,
+        topBar = topAppBar,
+        containerColor = MaterialTheme.colorScheme.surface
     ) { padding ->
         // Pass scaffold padding to the content
         content(padding)

@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -112,6 +113,8 @@ fun PokemonItem(
                         bottom.linkTo(parent.bottom)
                     },
                 text = pokemon.name,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                 style = MaterialTheme.typography.titleSmall.copy(fontSize = 20.sp),
                 textAlign = TextAlign.Start
