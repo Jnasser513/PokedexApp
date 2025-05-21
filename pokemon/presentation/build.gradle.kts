@@ -13,6 +13,8 @@ dependencies {
     implementation(libs.androidx.storage)
     implementation(libs.coil.compose)
     implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.androidx.navigation.common.android)
+    implementation(libs.koin.androidx.compose)
 
     // Modules
     implementation(projects.pokemon.domain)

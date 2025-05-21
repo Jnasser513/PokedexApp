@@ -27,9 +27,15 @@ class OfflineFirstPokemonRepository(
 ) : PokemonRepository {
 
     /**
-     * Retrieves Pokémon from the local database.
+     * Retrieves a list of Pokémon from the local database.
      */
     override fun getPokemons(): Flow<List<Pokemon>> = localPokemonDataSource.getPokemons()
+
+    /**
+     * Retrieves a list of Pokémon from the local database by its ID.
+     */
+    override fun getPokemonById(pokemonId: Int): Pokemon =
+        localPokemonDataSource.getPokemonById(pokemonId)
 
     /**
      * Fetches a list of Pokémon for a specific generation from the remote API.

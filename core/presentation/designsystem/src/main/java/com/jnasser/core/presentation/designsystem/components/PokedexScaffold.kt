@@ -1,4 +1,6 @@
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,7 +20,8 @@ fun PokedexScaffold(
 ) {
     Scaffold(
         modifier = modifier,
-        topBar = topAppBar
+        topBar = topAppBar,
+        containerColor = MaterialTheme.colorScheme.surface
     ) { padding ->
         // Pass scaffold padding to the content
         content(padding)

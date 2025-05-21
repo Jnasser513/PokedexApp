@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -71,7 +72,7 @@ fun PokemonItem(
                         top.linkTo(parent.top)
                     }
                 ,
-                text = stringResource(R.string.pokemon_number, pokemon.number),
+                text = stringResource(R.string.pokemon_number, pokemon.number.padStart(3, '0')),
                 color = PokedexColors.Gray200,
                 style = MaterialTheme.typography.bodyMedium.copy(
                     fontWeight = FontWeight.Normal
@@ -90,7 +91,7 @@ fun PokemonItem(
                         bottom.linkTo(name.top)
                     },
                 model = pokemon.imageUrl,
-                contentDescription = stringResource(R.string.pokemon),
+                contentDescription = stringResource(R.string.pokemon_name),
                 error = {
                     // TODO("Add error image")
                 },
@@ -112,6 +113,8 @@ fun PokemonItem(
                         bottom.linkTo(parent.bottom)
                     },
                 text = pokemon.name,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                 style = MaterialTheme.typography.titleSmall.copy(fontSize = 20.sp),
                 textAlign = TextAlign.Start

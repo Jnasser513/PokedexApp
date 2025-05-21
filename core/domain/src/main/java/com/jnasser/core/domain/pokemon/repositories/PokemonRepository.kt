@@ -22,6 +22,13 @@ interface PokemonRepository {
     fun getPokemons(): Flow<List<Pokemon>>
 
     /**
+     * Retrieves a single Pokémon stored locally by its ID.
+     *
+     * @return A [Flow] emitting the list of Pokémon.
+     */
+    fun getPokemonById(pokemonId: Int): Pokemon
+
+    /**
      * Retrieves the list of Pokémon for a specific generation.
      *
      * @param generation The generation number to retrieve (e.g., 1 for Gen I).

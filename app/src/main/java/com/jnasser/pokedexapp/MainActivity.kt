@@ -11,7 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.jnasser.core.presentation.designsystem.theme.PokedexAppTheme
+import com.jnasser.pokedexapp.navigation.NavigationRoot
+import com.jnasser.pokemon.presentation.pokemon_detail.composables.PokemonDetailScreenRoot
 import com.jnasser.pokemon.presentation.pokemon_list.composables.PokemonListScreenRoot
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +23,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PokedexAppTheme {
-                PokemonListScreenRoot()
+                val navController = rememberNavController()
+                NavigationRoot(
+                    navController = navController
+                )
             }
         }
     }
