@@ -39,8 +39,8 @@ class PokemonListViewModel(
 
     fun onAction(action: PokemonListAction) {
         when(action) {
-            is PokemonListAction.OnPokemonDetail -> TODO()
             is PokemonListAction.OnSearch -> onSearch(action.query)
+            else -> Unit
         }
     }
 

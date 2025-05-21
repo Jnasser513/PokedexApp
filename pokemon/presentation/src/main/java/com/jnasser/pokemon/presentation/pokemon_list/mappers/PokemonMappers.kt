@@ -6,5 +6,5 @@ import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonListDataUi
 fun Pokemon.toPokemonDataUi() = PokemonListDataUi(
     name = name,
     imageUrl = imageUrl,
-    number = id.toString().padStart(3, '0')
+    number = id.toString()
 )

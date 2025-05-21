@@ -16,10 +16,4 @@ class PokemonDetailViewModel(
 
     private val eventChannel = Channel<PokemonDetailEvent>()
     val events = eventChannel.receiveAsFlow()
-
-    fun onAction(action: PokemonDetailAction) {
-        when(action) {
-            PokemonDetailAction.OnReturn -> TODO()
-        }
-    }
 }
