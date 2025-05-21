@@ -37,7 +37,9 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun PokemonDetailScreenRoot(
-    viewModel: PokemonDetailViewModel = koinViewModel()
+    viewModel: PokemonDetailViewModel = koinViewModel(),
+    pokemonId: Int,
+    onReturn: () -> Unit
 ) {
     val context = LocalContext.current
     ObserveAsEvents(viewModel.events) { event ->
@@ -53,7 +55,9 @@ fun PokemonDetailScreenRoot(
     PokemonDetailScreen(
         state = viewModel.state,
         onAction = { action ->
-            viewModel.onAction(action)
+            when(action) {
+                PokemonDetailAction.OnReturn -> onReturn()
+            }
         }
     )
 }
@@ -70,7 +74,9 @@ fun PokemonDetailScreen(
                 config = PokedexTopAppBarConfig(
                     title = state.pokemonDetail.name,
                     centerTitle = false,
-                    navigationIcon = PokedexTopAppBar.NavigationIcon.Up {},
+                    navigationIcon = PokedexTopAppBar.NavigationIcon.Up {
+                        onAction(PokemonDetailAction.OnReturn)
+                    },
                     actions = listOf(
                         PokedexTopAppBar.Action(
                             text = state.pokemonDetail.number,
@@ -87,7 +93,9 @@ fun PokemonDetailScreen(
         )
 
         LazyColumn(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .padding(padding)
+                .fillMaxSize(),
             contentPadding = PaddingValues(20.dp)
         ) {
             item {

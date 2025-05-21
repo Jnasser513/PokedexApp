@@ -72,7 +72,7 @@ fun PokemonItem(
                         top.linkTo(parent.top)
                     }
                 ,
-                text = stringResource(R.string.pokemon_number, pokemon.number),
+                text = stringResource(R.string.pokemon_number, pokemon.number.padStart(3, '0')),
                 color = PokedexColors.Gray200,
                 style = MaterialTheme.typography.bodyMedium.copy(
                     fontWeight = FontWeight.Normal

@@ -43,7 +43,8 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun PokemonListScreenRoot(
-    viewModel: PokemonListViewModel = koinViewModel()
+    viewModel: PokemonListViewModel = koinViewModel(),
+    onPokemonDetail: (Int) -> Unit
 ) {
     val context = LocalContext.current
     ObserveAsEvents(viewModel.events) { event ->
@@ -59,6 +60,10 @@ fun PokemonListScreenRoot(
     PokemonListScreen(
         state = viewModel.state,
         onAction = { action ->
+            when(action) {
+                is PokemonListAction.OnPokemonDetail -> onPokemonDetail(action.id)
+                else -> Unit
+            }
             viewModel.onAction(action)
         }
     )
@@ -110,7 +115,10 @@ fun PokemonListScreen(
                     )
                 )
                 PokemonList(
-                    pokemonList = state.filteredPokemonList
+                    pokemonList = state.filteredPokemonList,
+                    onPokemonClick = { pokemonId ->
+                        onAction(PokemonListAction.OnPokemonDetail(pokemonId))
+                    }
                 )
             }
         }

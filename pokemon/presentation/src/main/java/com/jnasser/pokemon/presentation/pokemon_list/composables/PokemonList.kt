@@ -14,7 +14,8 @@ import com.jnasser.pokemon.presentation.pokemon_list.model.PokemonListDataUi
 @Composable
 fun PokemonList(
     modifier: Modifier = Modifier,
-    pokemonList: List<PokemonListDataUi>
+    pokemonList: List<PokemonListDataUi>,
+    onPokemonClick: (Int) -> Unit
 ) {
     LazyVerticalGrid(
         modifier = modifier.fillMaxSize(),
@@ -27,7 +28,7 @@ fun PokemonList(
             PokemonItem(
                 pokemon = item,
                 onClick = { number ->
-
+                    number.toIntOrNull()?.let { onPokemonClick(it) }
                 }
             )
         }
