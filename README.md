@@ -4,6 +4,13 @@ Aplicación Android desarrollada en Kotlin que permite explorar información de 
 
 ---
 
+<p float="left">
+  <img src="https://github.com/user-attachments/assets/d0540d2c-0bed-415a-91ec-8487d41bad4b" alt="WhatsApp Image 1" width="200" style="margin-right: 10px;"/>
+  <img src="https://github.com/user-attachments/assets/07a0efeb-0de1-451b-a547-853ce842ba0d" alt="WhatsApp Image 2" width="200" style="margin-right: 10px;"/>
+  <img src="https://github.com/user-attachments/assets/20fd56ee-f765-4b3c-9661-97079a5737d8" alt="WhatsApp Image 3" width="200" />
+</p>
+
+
 ## 🚀 Tecnologías y arquitectura
 
 - **Kotlin**
