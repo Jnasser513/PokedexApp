@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -41,12 +42,12 @@ fun PokemonItem(
             .fillMaxWidth()
             .aspectRatio(1f)
             .shadow(
-                color = PokedexColors.Gray100,
+                color = Color(0x1A78B1B5),
                 borderRadius = 10.dp,
                 offsetX = 0.dp,
                 offsetY = 2.dp,
                 spread = 0.dp,
-                blurRadius = 20.dp
+                blurRadius = 28.dp
             )
             .clickable { onClick(pokemon.number) },
         shape = RoundedCornerShape(10.dp),
