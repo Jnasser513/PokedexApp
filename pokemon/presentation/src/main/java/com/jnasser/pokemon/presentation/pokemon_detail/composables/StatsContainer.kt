@@ -95,7 +95,7 @@ fun StatData(
         )
 
         Text(
-            modifier = Modifier.padding(horizontal = 4.dp).weight(1f),
+            modifier = Modifier.padding(horizontal = 4.dp).weight(1.2f),
             text = stat.value.toString().padStart(3, '0'),
             style = MaterialTheme.typography.bodyMedium,
             color = PokedexColors.Gray400
