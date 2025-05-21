@@ -24,7 +24,7 @@ interface PokemonDao {
 
     @Transaction
     @Query("SELECT * FROM pokemon_entity WHERE id = :pokemonId")
-    fun getPokemonWithTypesAndStats(pokemonId: Int): Flow<PokemonWithTypesAndStats>
+    fun getPokemonWithTypesAndStats(pokemonId: Int): PokemonWithTypesAndStats
 
     @Upsert
     suspend fun upsertPokemon(pokemon: PokemonEntity): Long

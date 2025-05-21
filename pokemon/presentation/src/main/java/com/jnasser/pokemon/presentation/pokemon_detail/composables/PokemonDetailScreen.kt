@@ -13,8 +13,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jnasser.core.domain.pokemon.model.PokemonType
@@ -24,6 +26,7 @@ import com.jnasser.core.presentation.designsystem.enums.PokemonTypeEnum
 import com.jnasser.core.presentation.designsystem.theme.PokedexAppTheme
 import com.jnasser.core.presentation.designsystem.theme.PokedexColors
 import com.jnasser.core.presentation.ui.ObserveAsEvents
+import com.jnasser.pokemon.presentation.R
 import com.jnasser.pokemon.presentation.pokemon_detail.PokemonDetailAction
 import com.jnasser.pokemon.presentation.pokemon_detail.PokemonDetailEvent
 import com.jnasser.pokemon.presentation.pokemon_detail.PokemonDetailViewModel
@@ -31,8 +34,7 @@ import com.jnasser.pokemon.presentation.pokemon_detail.PokemonDetailViewState
 import com.jnasser.pokemon.presentation.pokemon_detail.model.ImageContainerDataUi
 import com.jnasser.pokemon.presentation.pokemon_detail.model.MeasuresContainerDataUi
 import com.jnasser.pokemon.presentation.pokemon_detail.model.PokemonDetailDataUi
-import com.jnasser.pokemon.presentation.pokemon_detail.model.StatContainerDataUi
-import com.jnasser.pokemon.presentation.pokemon_detail.toPokemonStatDataUi
+import com.jnasser.pokemon.presentation.pokemon_detail.mappers.toPokemonStatDataUi
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -50,6 +52,10 @@ fun PokemonDetailScreenRoot(
                 Toast.LENGTH_SHORT
             ).show()
         }
+    }
+
+    LaunchedEffect(pokemonId) {
+        viewModel.getPokemonById(pokemonId)
     }
 
     PokemonDetailScreen(
@@ -79,7 +85,7 @@ fun PokemonDetailScreen(
                     },
                     actions = listOf(
                         PokedexTopAppBar.Action(
-                            text = state.pokemonDetail.number,
+                            text = stringResource(R.string.pokemon_number, state.pokemonDetail.number.padStart(3, '0')),
                             tintColor = PokedexColors.Gray300
                         )
                     )

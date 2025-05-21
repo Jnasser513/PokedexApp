@@ -83,6 +83,7 @@ projectCompileSdkVersion = "35"
 projectVersionCode = "1"
 storage = "1.4.2"
 composeMaterial = "1.4.1"
+navigationCommonAndroid = "2.9.0"
 
 [libraries]
 # Jetpack Compose UI Libraries
@@ -179,6 +180,7 @@ ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
 androidx-storage = { group = "androidx.test.services", name = "storage", version.ref = "storage" }
+androidx-navigation-common-android = { group = "androidx.navigation", name = "navigation-common-android", version.ref = "navigationCommonAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

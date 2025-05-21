@@ -34,7 +34,7 @@ class OfflineFirstPokemonRepository(
     /**
      * Retrieves a list of Pokémon from the local database by its ID.
      */
-    override fun getPokemonById(pokemonId: Int): Flow<Pokemon> =
+    override fun getPokemonById(pokemonId: Int): Pokemon =
         localPokemonDataSource.getPokemonById(pokemonId)
 
     /**

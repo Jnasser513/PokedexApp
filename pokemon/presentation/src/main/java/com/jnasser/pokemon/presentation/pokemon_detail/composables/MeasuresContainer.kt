@@ -53,7 +53,8 @@ fun MeasuresContainer(
         )
         VerticalDivider(
             modifier = Modifier
-                .padding(horizontal = 15.dp, vertical = 8.dp)
+                .padding(vertical = 8.dp)
+                .padding(start = 15.dp)
                 .height(40.dp),
             thickness = 1.dp,
             color = PokedexColors.Gray100

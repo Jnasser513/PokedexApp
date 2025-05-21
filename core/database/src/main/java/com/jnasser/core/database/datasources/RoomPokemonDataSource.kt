@@ -42,11 +42,8 @@ class RoomPokemonDataSource(
      * @param pokemonId The ID of the Pokémon to retrieve.
      * @return A [Flow] emitting the [Pokemon] object with full details.
      */
-    override fun getPokemonById(pokemonId: Int): Flow<Pokemon> {
-        return pokemonDao.getPokemonWithTypesAndStats(pokemonId)
-            .map { pokemonEntity ->
-                pokemonEntity.toPokemon()
-            }
+    override fun getPokemonById(pokemonId: Int): Pokemon {
+        return pokemonDao.getPokemonWithTypesAndStats(pokemonId).toPokemon()
     }
 
     /**

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface LocalPokemonDataSource {
     fun getPokemons(): Flow<List<Pokemon>>
-    fun getPokemonById(pokemonId: Int): Flow<Pokemon>
+    fun getPokemonById(pokemonId: Int): Pokemon
     suspend fun upsertPokemon(pokemon: Pokemon): Result<Boolean, DataError.Local>
     suspend fun upsertPokemonTypes(types: List<PokemonType>): Result<Boolean, DataError.Local>
     suspend fun upsertPokemonStats(stats: List<PokemonStat>): Result<Boolean, DataError.Local>

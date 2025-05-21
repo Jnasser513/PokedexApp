@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -95,12 +96,14 @@ fun ImageWithTypes(
                 }
             }
         )
-        types.forEach { type ->
-            PokedexChip(
-                config = PokedexChipConfig(
-                    type = PokemonTypeEnum.fromName(type.type.lowercase())
-                ) {}
-            )
+        Row {
+            types.forEach { type ->
+                PokedexChip(
+                    config = PokedexChipConfig(
+                        type = PokemonTypeEnum.fromName(type.type.lowercase())
+                    ) {}
+                )
+            }
         }
     }
 }

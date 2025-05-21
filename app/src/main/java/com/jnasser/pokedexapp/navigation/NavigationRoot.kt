@@ -1,7 +1,7 @@
 package com.jnasser.pokedexapp.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -11,7 +11,6 @@ import androidx.navigation.toRoute
 import com.jnasser.pokemon.presentation.pokemon_detail.composables.PokemonDetailScreenRoot
 import com.jnasser.pokemon.presentation.pokemon_list.composables.PokemonListScreenRoot
 import kotlinx.serialization.Serializable
-import timber.log.Timber
 
 @Serializable
 data object PokemonGraphRoute
@@ -24,6 +23,8 @@ fun NavigationRoot(
         navController = navController,
         startDestination = PokemonGraphRoute
     ) {
+
+
         pokemonGraph(navController)
     }
 }
@@ -45,8 +46,9 @@ private fun NavGraphBuilder.pokemonGraph(navController: NavHostController) {
                 }
             )
         }
-        composable<PokemonDetailRoute> { data ->
-            val pokemonId = data.toRoute<PokemonDetailRoute>().pokemonId
+        composable<PokemonDetailRoute> { backStackEntry ->
+            val pokemonId = backStackEntry.toRoute<PokemonDetailRoute>().pokemonId
+
             PokemonDetailScreenRoot(
                 pokemonId = pokemonId,
                 onReturn = {
