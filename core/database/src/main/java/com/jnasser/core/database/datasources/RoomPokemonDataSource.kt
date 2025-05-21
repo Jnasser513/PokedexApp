@@ -36,6 +36,20 @@ class RoomPokemonDataSource(
     }
 
     /**
+     * Retrieves a single Pokémon from the local database by its ID,
+     * including its types and stats, and maps it to the domain model.
+     *
+     * @param pokemonId The ID of the Pokémon to retrieve.
+     * @return A [Flow] emitting the [Pokemon] object with full details.
+     */
+    override fun getPokemonById(pokemonId: Int): Flow<Pokemon> {
+        return pokemonDao.getPokemonWithTypesAndStats(pokemonId)
+            .map { pokemonEntity ->
+                pokemonEntity.toPokemon()
+            }
+    }
+
+    /**
      * Inserts or updates a Pokémon entity in the database.
      *
      * @param pokemon The domain model to persist.
